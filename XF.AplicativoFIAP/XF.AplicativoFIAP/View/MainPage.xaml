@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.AplicativoFIAP.View.MainPage" x:Name="ProfessoresListPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                <Button x:Name="btnNovo" Text="Novo" Command="{Binding OnNovoCMD}" />
+            </StackLayout>
+            <Label Text="Professores" Font="18" />
+            <SearchBar Placeholder="Pesquisar por nome" Text="{Binding ProfessorPesquisado}" />
+            <ListView x:Name="lstProfessores" ItemsSource="{Binding Professores}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nome}" Detail="{Binding Titulo}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Editar" CommandParameter="{Binding .}"
+                                          Command="{Binding BindingContext.OnEditarCMD, Source={x:Reference ProfessoresListPage}}" />
+                                <MenuItem Text="Remover" IsDestructive="True" CommandParameter="{Binding .}"
+                                          Command="{Binding BindingContext.OnRemoverCMD, Source={x:Reference ProfessoresListPage}}" />
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

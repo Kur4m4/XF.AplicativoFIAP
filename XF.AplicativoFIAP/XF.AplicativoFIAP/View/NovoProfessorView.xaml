@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.AplicativoFIAP.View.NovoProfessorView" Title="Novo Professor">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Entry x:Name="txtNome" Placeholder="Nome" Text="{Binding Professor.Nome}" />
+            <Entry x:Name="txtTitulo" Placeholder="Título" Text="{Binding Professor.Titulo}" />
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btnSalvar" Text="Salvar" Command="{Binding OnSalvarCMD}" />
+                <Button x:Name="btnCancelar" Text="Cancelar" Command="{Binding OnCancelarCMD}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
